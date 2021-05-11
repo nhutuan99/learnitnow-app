@@ -1,6 +1,7 @@
 .landing {
 	position: relative;
-	background: url('./assets/landing.jpg') no-repeat center center/cover;
+	background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/221808/sky.jpg')
+		no-repeat center center/cover;
 	height: 100vh;
 }
 
