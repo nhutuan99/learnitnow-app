@@ -1,18 +1,18 @@
-import { PostContext } from '../contexts/PostContext'
-import { AuthContext } from '../contexts/AuthContext'
-import { useContext, useEffect } from 'react'
-import Spinner from 'react-bootstrap/Spinner'
-import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card'
-import Row from 'react-bootstrap/Row'
-import Toast from 'react-bootstrap/Toast'
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
-import Tooltip from 'react-bootstrap/Tooltip'
-import Col from 'react-bootstrap/Col'
-import SinglePost from '../components/posts/SinglePost'
-import AddPostModal from '../components/posts/AddPostModal'
-import UpdatePostModal from '../components/posts/UpdatePostModal'
-import addIcon from '../assets/plus-circle-fill.svg'
+import { PostContext } from '../contexts/PostContext';
+import { AuthContext } from '../contexts/AuthContext';
+import { useContext, useEffect } from 'react';
+import Spinner from 'react-bootstrap/Spinner';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Row from 'react-bootstrap/Row';
+import Toast from 'react-bootstrap/Toast';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+import Col from 'react-bootstrap/Col';
+import SinglePost from '../components/posts/SinglePost';
+import AddPostModal from '../components/posts/AddPostModal';
+import UpdatePostModal from '../components/posts/UpdatePostModal';
+import addIcon from '../assets/plus-circle-fill.svg';
 
 const Dashboard = () => {
 	// Contexts
@@ -20,7 +20,7 @@ const Dashboard = () => {
 		authState: {
 			user: { username }
 		}
-	} = useContext(AuthContext)
+	} = useContext(AuthContext);
 
 	const {
 		postState: { post, posts, postsLoading },
@@ -28,46 +28,46 @@ const Dashboard = () => {
 		setShowAddPostModal,
 		showToast: { show, message, type },
 		setShowToast
-	} = useContext(PostContext)
+	} = useContext(PostContext);
 
 	// Start: Get all posts
 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	useEffect(() => getPosts(), [ ])
+	useEffect(() => getPosts(), []);
 
-	let body = null
+	let body = null;
 
 	if (postsLoading) {
 		body = (
-			<div className='spinner-container'>
-				<Spinner animation='border' variant='info' />
+			<div className="spinner-container">
+				<Spinner animation="border" variant="info" />
 			</div>
-		)
+		);
 	} else if (posts.length === 0) {
 		body = (
 			<>
-				<Card className='text-center mx-5 my-5'>
-					<Card.Header as='h1'>Hi {username}</Card.Header>
+				<Card className="text-center mx-5 my-5">
+					<Card.Header as="h3">Hi {username}</Card.Header>
 					<Card.Body>
-						<Card.Title>Welcome to LearnIt</Card.Title>
-						<Card.Text>
+						<Card.Title>Welcome to Learn It Now</Card.Title>
+						<Card.Text style={{ color: 'gray' }}>
 							Click the button below to track your first skill to learn
 						</Card.Text>
 						<Button
-							variant='primary'
+							variant="info"
 							onClick={setShowAddPostModal.bind(this, true)}
 						>
-							LearnIt!
+							Learn Now
 						</Button>
 					</Card.Body>
 				</Card>
 			</>
-		)
+		);
 	} else {
 		body = (
 			<>
-				<Row className='row-cols-1 row-cols-md-3 g-4 mx-auto mt-3'>
-					{posts.map(post => (
-						<Col key={post._id} className='my-2'>
+				<Row className="row-cols-1 row-cols-md-3 g-4 mx-auto mt-3">
+					{posts.map((post) => (
+						<Col key={post._id} className="my-2">
 							<SinglePost post={post} />
 						</Col>
 					))}
@@ -75,18 +75,18 @@ const Dashboard = () => {
 
 				{/* Open Add Post Modal */}
 				<OverlayTrigger
-					placement='left'
+					placement="left"
 					overlay={<Tooltip>Add a new thing to learn</Tooltip>}
 				>
 					<Button
-						className='btn-floating'
+						className="btn-floating"
 						onClick={setShowAddPostModal.bind(this, true)}
 					>
-						<img src={addIcon} alt='add-post' width='60' height='60' />
+						<img src={addIcon} alt="add-post" width="60" height="60" />
 					</Button>
 				</OverlayTrigger>
 			</>
-		)
+		);
 	}
 
 	return (
@@ -112,7 +112,7 @@ const Dashboard = () => {
 				</Toast.Body>
 			</Toast>
 		</>
-	)
-}
+	);
+};
 
-export default Dashboard
+export default Dashboard;

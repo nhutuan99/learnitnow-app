@@ -1,6 +1,6 @@
 .landing {
 	position: relative;
-	background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/221808/sky.jpg')
+	background: url('http://divui.com/blog/wp-content/uploads/2016/12/tu-tap-sai-gon-b7.jpg')
 		no-repeat center center/cover;
 	height: 100vh;
 }
@@ -26,6 +26,7 @@
 
 .landing-inner h1,
 .landing-inner h4,
+.landing-inner h5,
 .landing-inner p {
 	color: white;
 }
@@ -110,4 +111,18 @@ button.post-button.btn:active {
 /* Post title */
 .post-title {
 	margin-bottom: 0.5rem;
+}
+
+/* Responsive Layout */
+
+@media screen and (max-width: 432px) {
+	.landing-inner form {
+		width: 60%;
+	}
+	.landing-inner h5 {
+		font-size: 0.9rem;
+	}
+}
+
+@media screen and (min-width: 768px) {
 }
