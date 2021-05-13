@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import AlertMessage from '../layout/AlertMessage';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const LoginForm = () => {
 	// Context
